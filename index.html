@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Roman Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="card">
+    <h1>Roman Converter</h1>
+    
+    <div class="input-group">
+        <label>Integer (1 - 3999)</label>
+        <input type="number" id="numInput" placeholder="e.g. 2024" oninput="handleIntConversion()">
+        <div class="display-area">
+            <div id="romanResult" class="result"></div>
+            <button class="copy-btn" onclick="copyText('romanResult')">Copy</button>
+        </div>
+        <div id="intError" class="error">Please enter a number between 1 and 3999.</div>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 2rem 0;">
+
+    <div class="input-group">
+        <label>Roman Numerals (Strict Validation)</label>
+        <input type="text" id="romanInput" placeholder="e.g. MMXXIV" oninput="handleRomanConversion()">
+        <div class="display-area">
+            <div id="numResult" class="result"></div>
+            <button class="copy-btn" onclick="copyText('numResult')">Copy</button>
+        </div>
+        <div id="romanError" class="error">Invalid Roman numeral sequence.</div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

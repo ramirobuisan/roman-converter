@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roman Converter Tests</title>
+  <link rel="stylesheet" href="lib/mocha.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.css" />
+</head>
+<body>
+  <div id="mocha"></div>
+
+  <!-- Hidden DOM elements required by handlers -->
+  <div style="display:none;">
+    <input type="number" id="numInput">
+    <input type="text" id="romanInput">
+    <div id="romanResult"></div>
+    <div id="numResult"></div>
+    <div id="intError" style="display:none;"></div>
+    <div id="romanError" style="display:none;"></div>
+  </div>
+
+  <script src="lib/mocha.js"></script>
+  <script>if (typeof mocha === 'undefined') document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.js"><\/script>');</script>
+  <script src="lib/chai.js"></script>
+  <script>if (typeof chai === 'undefined') document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.7/chai.min.js"><\/script>');</script>
+
+  <script>mocha.setup('bdd');</script>
+  <script src="script.js"></script>
+  <script src="tests.js"></script>
+  <script>mocha.run();</script>
+</body>
+</html>
