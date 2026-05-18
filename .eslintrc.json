@@ -21,6 +21,8 @@
     "toInt": "readonly",
     "romanRegex": "readonly",
     "handleIntConversion": "readonly",
-    "handleRomanConversion": "readonly"
+    "handleRomanConversion": "readonly",
+    "gtag": "readonly",
+    "dataLayer": "readonly"
   }
 }
