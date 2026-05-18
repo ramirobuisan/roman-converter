@@ -11,11 +11,27 @@ function handleIntConversion() {
 
     if (val > 0 && val < 4000) {
         err.style.display = "none";
-        document.getElementById("romanResult").innerText = toRoman(val);
+        const result = toRoman(val);
+        document.getElementById("romanResult").innerText = result;
+        // GA4 custom event: successful conversion
+        if (typeof gtag !== "undefined") {
+            gtag("event", "conversion_performed", {
+                conversion_mode: "int_to_roman",
+                input_value: val,
+                output_value: result
+            });
+        }
     } else {
         document.getElementById("romanResult").innerText = "";
         if (input.value !== "") {
             err.style.display = "block";
+            // GA4 custom event: invalid input
+            if (typeof gtag !== "undefined") {
+                gtag("event", "invalid_input", {
+                    conversion_mode: "int_to_roman",
+                    input_value: input.value
+                });
+            }
         }
     }
 }
@@ -33,10 +49,26 @@ function handleRomanConversion() {
 
     if (romanRegex.test(str)) {
         err.style.display = "none";
-        document.getElementById("numResult").innerText = toInt(str);
+        const result = toInt(str);
+        document.getElementById("numResult").innerText = result;
+        // GA4 custom event: successful conversion
+        if (typeof gtag !== "undefined") {
+            gtag("event", "conversion_performed", {
+                conversion_mode: "roman_to_int",
+                input_value: str,
+                output_value: result
+            });
+        }
     } else {
         err.style.display = "block";
         document.getElementById("numResult").innerText = "---";
+        // GA4 custom event: invalid input
+        if (typeof gtag !== "undefined") {
+            gtag("event", "invalid_input", {
+                conversion_mode: "roman_to_int",
+                input_value: input.value
+            });
+        }
     }
 }
 
